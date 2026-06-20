@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structures de chaussées — Formation Travaux Publics</title>
+<meta name="description" content="Formation Structures de chaussées : 17 séquences, 2 sessions. Terrassements, matériaux, lecture de plans, sécurité chantier.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nuit:#1A2B3D;
+    --ardoise:#2C4A63;
+    --securite:#F5A623;
+    --beton:#EEEAE2;
+    --blanc:#FFFFFF;
+    --texte:#2C2C2C;
+    --vert-ok:#2E7D4F;
+    --radius:10px;
+    --maxw:1100px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--texte);
+    background:var(--blanc);
+    line-height:1.6;
+    font-size:17px;
+  }
+  h1,h2,h3,.eyebrow{font-family:'Barlow Condensed',sans-serif;}
+  img{max-width:100%;display:block;}
+  a{color:var(--ardoise);}
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:3px solid var(--securite);
+    outline-offset:2px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .skip-link{
+    position:absolute;left:-999px;top:auto;
+    background:var(--securite);color:var(--nuit);padding:10px 16px;
+    font-weight:700;z-index:100;border-radius:0 0 8px 0;
+  }
+  .skip-link:focus{left:0;top:0;}
+
+  /* ===== HEADER ===== */
+  header.site{
+    background:linear-gradient(135deg,var(--nuit) 0%,var(--ardoise) 100%);
+    color:var(--blanc);
+    padding:48px 0 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.site::after{
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:10px;
+    background:repeating-linear-gradient(
+      90deg,var(--securite) 0 36px, var(--nuit) 36px 44px
+    );
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .logo-box{
+    flex:0 0 auto;
+    background:var(--blanc);
+    border-radius:50%;
+    padding:8px;
+    width:110px;height:110px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 18px rgba(0,0,0,.25);
+  }
+  .logo-box img{width:100%;height:100%;object-fit:contain;}
+  .header-text{flex:1 1 360px;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-weight:700;
+    color:var(--securite);
+    font-size:1rem;
+    margin:0 0 6px;
+  }
+  h1{
+    font-size:clamp(2.1rem,5vw,3.4rem);
+    font-weight:800;
+    line-height:1.05;
+    margin:0 0 14px;
+    letter-spacing:.01em;
+  }
+  .tagline{
+    font-size:1.15rem;
+    max-width:640px;
+    color:#E8EEF3;
+    margin:0 0 22px;
+  }
+  .header-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .meta-chip{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;
+    padding:8px 16px;
+    font-size:.95rem;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  /* ===== STRATE (signature séparateur) ===== */
+  .strate{
+    height:34px;
+    display:flex;
+    width:100%;
+  }
+  .strate span{flex:1;height:100%;}
+  .strate .c1{background:#3A3A3A;}
+  .strate .c2{background:#5C5C5C;}
+  .strate .c3{background:#8C7A5C;}
+  .strate .c4{background:var(--securite);}
+  .strate-label{
+    text-align:center;
+    font-size:.78rem;
+    color:#8a8a8a;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:6px 0;
+    background:var(--beton);
+  }
+
+  /* ===== SECTIONS GENERIC ===== */
+  section{padding:56px 0;}
+  section h2{
+    font-size:clamp(1.7rem,3.4vw,2.3rem);
+    color:var(--nuit);
+    margin:0 0 8px;
+    font-weight:800;
+  }
+  .section-intro{
+    color:#555;
+    max-width:680px;
+    margin:0 0 32px;
+    font-size:1.02rem;
+  }
+  .bg-beton{background:var(--beton);}
+
+  /* ===== PROGRAMME / ACCORDEON ===== */
+  .session-title{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.4rem;
+    font-weight:700;
+    color:var(--ardoise);
+    margin:36px 0 14px;
+    padding-bottom:8px;
+    border-bottom:3px solid var(--securite);
+  }
+  .session-title:first-of-type{margin-top:0;}
+  details.module{
+    background:var(--blanc);
+    border:1px solid #DCD6C8;
+    border-radius:var(--radius);
+    margin-bottom:10px;
+    overflow:hidden;
+  }
+  details.module[open]{border-color:var(--ardoise);}
+  details.module summary{
+    cursor:pointer;
+    list-style:none;
+    padding:16px 20px;
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--nuit);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--blanc);
+  }
+  details.module summary::-webkit-details-marker{display:none;}
+  .mod-num{
+    flex:0 0 auto;
+    background:var(--beton);
+    color:var(--ardoise);
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    border-radius:6px;
+    padding:4px 10px;
+    min-width:32px;
+    text-align:center;
+  }
+  .chevron{
+    margin-left:auto;
+    transition:transform .2s ease;
+    flex:0 0 auto;
+    color:var(--ardoise);
+  }
+  details.module[open] .chevron{transform:rotate(180deg);}
+  .module-body{
+    padding:0 20px 20px 66px;
+    display:grid;
+    gap:10px;
+  }
+  .module-body .step{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:10px;
+    font-size:.96rem;
+  }
+  .module-body .step b{
+    color:var(--ardoise);
+    font-weight:700;
+  }
+  .module-body .tags{
+    margin-top:6px;
+    font-size:.86rem;
+    color:#6b6b6b;
+    font-style:italic;
+  }
+
+  /* ===== CARTE ===== */
+  .map-card{
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid #DCD6C8;
+  }
+  .map-card iframe{
+    width:100%;
+    height:380px;
+    border:0;
+    display:block;
+  }
+  .map-address{
+    background:var(--nuit);
+    color:var(--blanc);
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .map-address a{color:var(--securite);font-weight:700;text-decoration:none;}
+  .map-address a:hover{text-decoration:underline;}
+
+  /* ===== TELECHARGEMENTS ===== */
+  .dl-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;
+  }
+  .dl-card{
+    background:var(--blanc);
+    border:2px solid var(--nuit);
+    border-radius:var(--radius);
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .dl-card h3{
+    margin:0;
+    font-size:1.25rem;
+    color:var(--nuit);
+  }
+  .dl-card p{margin:0;color:#555;font-size:.95rem;flex:1;}
+  .btn-pdf{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    justify-content:center;
+    background:var(--securite);
+    color:var(--nuit);
+    font-weight:700;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-pdf:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.18);}
+
+  /* ===== FOOTER ===== */
+  footer.site{
+    background:var(--nuit);
+    color:#D9DEE3;
+    padding:40px 0 28px;
+    font-size:.95rem;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:28px;
+    margin-bottom:24px;
+  }
+  footer.site h3{
+    font-family:'Barlow Condensed',sans-serif;
+    color:var(--blanc);
+    font-size:1.1rem;
+    margin:0 0 10px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  footer.site a{color:var(--securite);text-decoration:none;}
+  footer.site a:hover{text-decoration:underline;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.15);
+    padding-top:18px;
+    font-size:.85rem;
+    color:#9AA5AF;
+  }
+
+  @media (max-width:560px){
+    .module-body{padding-left:20px;}
+    .module-body .step{grid-template-columns:1fr;}
+    .header-inner{text-align:center;justify-content:center;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{scroll-behavior:auto !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#contenu" class="skip-link">Aller au contenu principal</a>
+
+<header class="site">
+  <div class="wrap header-inner">
+    <div class="logo-box">
+      <img src="logo.png" alt="Logo Je me forme TP — casque de chantier blanc et jaune">
+    </div>
+    <div class="header-text">
+      <p class="eyebrow">Formation Travaux Publics</p>
+      <h1>Structures de chaussées</h1>
+      <p class="tagline">Comprendre, lire et contrôler une chaussée : des terrassements à la sécurité chantier, une formation concrète bâtie autour de cas réels du métier.</p>
+      <div class="header-meta">
+        <span class="meta-chip">📅 21 juin 2026</span>
+        <span class="meta-chip">📍 Boulazac (24)</span>
+        <span class="meta-chip">🎓 2 sessions · 17 séquences</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strate" role="presentation" aria-hidden="true">
+  <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span>
+</div>
+<p class="strate-label">Comme une chaussée : chaque couche du programme repose sur la précédente</p>
+
+<main id="contenu">
+
+  <!-- PROGRAMME -->
+  <section class="wrap" id="programme">
+    <h2>Le programme, module par module</h2>
+    <p class="section-intro">17 séquences réparties sur 2 sessions, construites en trois temps — Appel, Apport, Ancrage — pour aller de la découverte à la mise en pratique terrain.</p>
+
+    <h3 class="session-title">Session 1 — Découverte et fondamentaux</h3>
+
+    <details class="module">
+      <summary><span class="mod-num">01</span> Accueil<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Créer la confiance dans le groupe.</span></div>
+        <div class="step"><b>Apport</b><span>Présentation des objectifs de la formation.</span></div>
+        <div class="step"><b>Ancrage</b><span>Expression des attentes et engagement individuel.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">02</span> Découverte des structures<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Observation d'une photo de chaussée dégradée.</span></div>
+        <div class="step"><b>Apport</b><span>Les couches d'une chaussée et leurs fonctions.</span></div>
+        <div class="step"><b>Ancrage</b><span>Exercice de classement des couches.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">03</span> Terrassements<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Analyse d'une photo de désordre de chantier.</span></div>
+        <div class="step"><b>Apport</b><span>Le rôle du terrassement dans la stabilité.</span></div>
+        <div class="step"><b>Ancrage</b><span>Étude de cas concret.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">04</span> Quiz de réactivation<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Question défi sur les notions vues.</span></div>
+        <div class="step"><b>Apport</b><span>Correction commentée en groupe.</span></div>
+        <div class="step"><b>Ancrage</b><span>Score individuel et explication des écarts.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">05</span> Matériaux de terrassement<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Observation d'échantillons visuels de matériaux.</span></div>
+        <div class="step"><b>Apport</b><span>Caractéristiques de chaque matériau.</span></div>
+        <div class="step"><b>Ancrage</b><span>Classement collaboratif en sous-groupes.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">06</span> Lecture de plans<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Jeu du « plan mystère ».</span></div>
+        <div class="step"><b>Apport</b><span>Lecture de plan guidée par le formateur.</span></div>
+        <div class="step"><b>Ancrage</b><span>Exercice d'annotation individuelle.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">07</span> Erreurs de chantier<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Photo d'une erreur de chantier réelle.</span></div>
+        <div class="step"><b>Apport</b><span>Conséquences techniques et sécurité.</span></div>
+        <div class="step"><b>Ancrage</b><span>Exercice de diagnostic.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">08</span> Synthèse de session<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Nuage de mots collectif.</span></div>
+        <div class="step"><b>Apport</b><span>Construction d'une carte mentale.</span></div>
+        <div class="step"><b>Ancrage</b><span>Engagement sur la mise en pratique métier.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <h3 class="session-title">Session 2 — Application et sécurité terrain</h3>
+
+    <details class="module">
+      <summary><span class="mod-num">09</span> Réactivation<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Quiz photo sur la session précédente.</span></div>
+        <div class="step"><b>Apport</b><span>Correction collective.</span></div>
+        <div class="step"><b>Ancrage</b><span>Projection vers les contenus de la session 2.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">10</span> Sécurité<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Vidéo de mise en situation à risque.</span></div>
+        <div class="step"><b>Apport</b><span>Règles de sécurité essentielles.</span></div>
+        <div class="step"><b>Ancrage</b><span>Exercice de repérage des dangers.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">11</span> Contrôle terrassement<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Étude d'un cas de chantier.</span></div>
+        <div class="step"><b>Apport</b><span>Méthode de contrôle du terrassement.</span></div>
+        <div class="step"><b>Ancrage</b><span>Simulation pratique.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">12</span> Communication TP<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Jeu du mot mystère.</span></div>
+        <div class="step"><b>Apport</b><span>Lexique professionnel du secteur.</span></div>
+        <div class="step"><b>Ancrage</b><span>Mise en situation par jeu de rôle.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">13</span> Situation problème<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Présentation d'un cas réel de chantier.</span></div>
+        <div class="step"><b>Apport</b><span>Analyse collective de la situation.</span></div>
+        <div class="step"><b>Ancrage</b><span>Proposition de solution en groupe.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary><span class="mod-num">14</span> Conclusion<svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="module-body">
+        <div class="step"><b>Appel</b><span>Retour d'expérience des stagiaires.</span></div>
+        <div class="step"><b>Apport</b><span>Synthèse générale de la formation.</span></div>
+        <div class="step"><b>Ancrage</b><span>Plan d'action pour le retour sur le terrain.</span></div>
+        <p class="tags">Supports visuels · consignes courtes · interactions fréquentes</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- CARTE -->
+  <section class="bg-beton" id="lieu">
+    <div class="wrap">
+      <h2>Où se déroule la formation</h2>
+      <p class="section-intro">Le 21 juin 2026, à Boulazac.</p>
+      <div class="map-card">
+        <iframe
+          src="https://www.google.com/maps?q=Avenue+Ambroise+Croizat,+24750+Boulazac&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Carte du lieu de formation : Avenue Ambroise Croizat, 24750 Boulazac">
+        </iframe>
+        <div class="map-address">
+          <span>📍 Avenue Ambroise Croizat, 24750 Boulazac</span>
+          <a href="https://www.google.com/maps?q=Avenue+Ambroise+Croizat,+24750+Boulazac" target="_blank" rel="noopener">Ouvrir dans Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TELECHARGEMENTS -->
+  <section class="wrap" id="telechargements">
+    <h2>Documents à télécharger</h2>
+    <p class="section-intro">Le programme complet de la formation, à consulter ou imprimer avant la session.</p>
+    <div class="dl-grid">
+      <div class="dl-card">
+        <h3>📄 Programme détaillé</h3>
+        <p>Le déroulé complet des 17 séquences, sessions 1 et 2, au format PDF.</p>
+        <a class="btn-pdf" href="programme.pdf" target="_blank" rel="noopener">Télécharger le programme (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>Formateur</h3>
+        <p>Bruno<br>
+        <a href="mailto:brunoluciol6@gmail.com">brunoluciol6@gmail.com</a></p>
+      </div>
+      <div>
+        <h3>Accessibilité &amp; handicap</h3>
+        <p>Une question sur l'accueil d'une situation de handicap ? Contactez directement le formateur par e-mail : <a href="mailto:brunoluciol6@gmail.com">brunoluciol6@gmail.com</a>.</p>
+      </div>
+      <div>
+        <h3>Session</h3>
+        <p>21 juin 2026<br>Avenue Ambroise Croizat<br>24750 Boulazac</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 — Formation Structures de chaussées · Je me forme TP
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
